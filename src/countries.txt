@@ -86,8 +86,6 @@ Jordan
 Kazakhstan
 Kenya
 Kiribati
-Korea, North
-Korea, South
 Kosovo
 Kuwait
 Kyrgyzstan
@@ -126,6 +124,7 @@ New Zealand
 Nicaragua
 Niger
 Nigeria
+North Korea
 North Macedonia
 Norway
 Oman
@@ -159,6 +158,7 @@ Slovenia
 Solomon Islands
 Somalia
 South Africa
+South Korea
 South Sudan
 Spain
 Sri Lanka
