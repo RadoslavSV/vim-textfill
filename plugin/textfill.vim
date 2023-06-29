@@ -7,3 +7,5 @@ command! -nargs=0 FFirstName :call textfill#FemaleFirstNames()
 command! -nargs=0 MLastName :call textfill#LastNames('')
 
 command! -nargs=0 FLastName :call textfill#LastNames('а')
+
+command! -nargs=0 Phone :call textfill#Phone()
