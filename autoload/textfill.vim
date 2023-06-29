@@ -142,6 +142,7 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! textfill#Phone()
-  let l:phone_number = '0' . printf('%09d', str2nr(reltimestr(reltime())[0:1]).strpart(-9))
-  call append(line('.'), l:phone_number)
+    let l:phone_number = printf('%09d', rand() % 1000000000)
+    let l:phone_number = '0' . l:phone_number
+    execute 'normal! a' . l:phone_number
 endfunction
