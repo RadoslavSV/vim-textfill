@@ -216,3 +216,22 @@ function! textfill#Phone()
     let l:phone_number = '0' . l:phone_number
     execute 'normal! a' . l:phone_number
 endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! textfill#RandomNumber(r_begin, r_end)
+  let l:r_begin = str2nr(a:r_begin)
+  let l:r_end = str2nr(a:r_end)
+
+  if l:r_begin >= l:r_end
+    echomsg "Input valid range, where r_begin < r_end"
+  else
+    let l:random_number = l:r_begin + (rand(srand()) % (l:r_end - l:r_begin + 1))
+    while l:random_number > l:r_end
+      let l:random_number -= l:r_end - l:r_begin + 1
+    endwhile
+    execute 'normal! a' . l:random_number
+  endif
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
