@@ -2,6 +2,8 @@ command! -nargs=0 Country :call textfill#Countries()
 
 command! -nargs=0 City :call textfill#Cities()
 
+command! -nargs=0 Street :call textfill#Streets()
+
 command! -nargs=0 MFirstName :call textfill#MaleFirstNames()
 
 command! -nargs=0 FFirstName :call textfill#FemaleFirstNames()
