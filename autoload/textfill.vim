@@ -1,6 +1,10 @@
+let g:absolute_path = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 function! textfill#Countries()
-  let l:filename_latin = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\countries.txt'
-  let l:filename_cyrillic = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\BG_countries.txt'
+  let l:filename_latin = g:absolute_path . 'countries.txt'
+  let l:filename_cyrillic = g:absolute_path . 'BG_countries.txt'
   let l:letter = getline('.')[col('.') - 1]
   let l:candidates = []
   let l:country = ''
@@ -34,8 +38,8 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! textfill#Cities()
-  let l:filename_latin = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\cities.txt'
-  let l:filename_cyrillic = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\BG_cities.txt'
+  let l:filename_latin = g:absolute_path . 'cities.txt'
+  let l:filename_cyrillic = g:absolute_path . 'BG_cities.txt'
   let l:letter = getline('.')[col('.') - 1]
   let l:candidates = []
   let l:city = ''
@@ -69,8 +73,8 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! textfill#Streets()
-  let l:filename_latin = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\streets.txt'
-  let l:filename_cyrillic = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\BG_streets.txt'
+  let l:filename_latin = g:absolute_path . 'streets.txt'
+  let l:filename_cyrillic = g:absolute_path . 'BG_streets.txt'
   let l:letter = getline('.')[col('.') - 1]
   let l:candidates = []
   let l:country = ''
@@ -104,8 +108,8 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! textfill#MaleFirstNames()
-  let l:filename_latin = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\male_first_names.txt'
-  let l:filename_cyrillic = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\BG_male_first_names.txt'
+  let l:filename_latin = g:absolute_path . 'male_first_names.txt'
+  let l:filename_cyrillic = g:absolute_path . 'BG_male_first_names.txt'
   let l:letter = getline('.')[col('.') - 1]
   let l:candidates = []
   let l:name = ''
@@ -139,8 +143,8 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! textfill#FemaleFirstNames()
-  let l:filename_latin = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\female_first_names.txt'
-  let l:filename_cyrillic = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\BG_female_first_names.txt'
+  let l:filename_latin = g:absolute_path . 'female_first_names.txt'
+  let l:filename_cyrillic = g:absolute_path . 'BG_female_first_names.txt'
   let l:letter = getline('.')[col('.') - 1]
   let l:candidates = []
   let l:name = ''
@@ -174,8 +178,8 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! textfill#LastNames(end)
-  let l:filename_latin = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\last_names.txt'
-  let l:filename_cyrillic = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\BG_last_names.txt'
+  let l:filename_latin = g:absolute_path . 'last_names.txt'
+  let l:filename_cyrillic = g:absolute_path . 'BG_last_names.txt'
   let l:letter = getline('.')[col('.') - 1]
   let l:candidates = []
   let l:name = ''
@@ -239,7 +243,7 @@ endfunction
 function! textfill#LoremIpsum(word_len)
   let l:word_count = str2nr(a:word_len)
   if l:word_count <= 13560
-    let l:filename = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\lorem.txt'
+    let l:filename = g:absolute_path . 'lorem.txt'
     let l:lines = readfile(l:filename)
     let l:words = split(join(l:lines), '\(\s\|,\)\+')
     let l:extracted_words = l:words[:l:word_count - 1]

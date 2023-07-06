@@ -1,0 +1,106 @@
+Documentation for "vim-textfill" plugin
+---------------------------------------
+Author: Radoslav Velkov, FMI (SU), 3-rd year
+FN: 62528
+Course: Using and scripting Vim (teacher: Andrew Radev)
+
+
+=========================================================================================================================================
+CONTENTS
+
+    Description.............................................
+    Installation............................................
+    Usage...................................................
+    Settings................................................
+    Issues..................................................
+
+=========================================================================================================================================
+DESCRIPTION
+
+    "vim-textfill" is a powerful plugin designed to enhance the user's text-filling experience within Vim.
+    It provides convenient commands to generate random realistic text, saving time and effort when populating documents.
+
+    Using "vim-textfill" the user can easily insert random country names. Whether they need to create sample data,
+    simulate real-world scenarios, or add variety to their content, this feature allows them to quickly and effortlessly
+    generate diverse country names. In addition to country names, the plugin offers the analogical functionality with real cities
+    and street names.
+    When in need to think of human names (whether first, middle or last), some people may encounter unneccessary difficulties and thus
+    the plugin has functionalities for generating at random each of the following combinations: male/female first/last names
+    (the last name functionality can be used for middle names as well, since they are practically the same).
+    The cool thing here, which I may say makes this plugin a "one-of-a-kind" is that all aforementioned functionalities work with both
+    English and Bulgarian languages. The user must only input the initial letter (EN or BG) and it automatically detects what 
+    type of word to generate.
+    Another utility of the plugin is that is generates fully random 10-digit phone numbers, always starting with '0'. It can also generate
+    a random (pseudo-random) integer from a given (by the user) range.
+    For those moments when placeholder text or need to fill a specific word count is needed, the plugin provides the "Lorem" command.
+    This command retrieves a specified number of words from a preloaded Lorem Ipsum text file, allowing the user to tailor the length
+    of the generated text to match the exact requirements.
+
+    By automating the process of generating random text, "vim-textfill" eliminates the need to search for or manually type out
+    repetitive or unrealistic content. It simplifies the workflow, ensuring that the writer can focus on the core aspects of their
+    work without being distracted by the tedious task of generating placeholder text.
+
+=========================================================================================================================================
+INSTALLATION
+
+    You can clone my repo that contains the whole directory structure with all needed files to run the plugin.
+    URL: www.github.com/RadoslavSV/vim-textfill.git
+    Or you can create the dir structure and all files manually.
+    Place the "vim-textfill" directory in your main Vim directory and now in it you have everything you need.
+    You will need to adjust your absolute path to the "src" directory, in the very first row of autoload\textfill.vim file.
+    Change the value of g:absolute_path variable to your corresponding absolute path to src\ in order for the script to be able
+    to access the source txt files there.
+
+=========================================================================================================================================
+USAGE
+
+    In order to use the plugin functionalities, the user execute one of the following commands in the commandline, whilst in Normal mode.
+      1) :Country 
+      2) :City
+      3) :Street
+      4) :MFirstName
+      5) :FFirstName
+      6) :MLastName
+      7) :FLastName
+      8) :Phone
+      9) :RandomNumber <arg-1> <arg-2>
+     10) :Lorem <arg-1>
+
+    Commands 1 - 7, must be executed while the cursor is at a letter (English or Bulgarian) and it will pick a random word from the
+    corresponding source file and place it exactly after the cursor, shifting all characters after the cursor to the right
+    "length-of-the-word" times. I.e. it will autocomplete the started word. It works both with Bulgarian written letters and with
+    English written letters. It also works with either uppercase or lowercase first letter, without changing it.
+    Example: if the cursor is at letter 'd' and the line is "abcdef" and the user executes :Country, the line may become
+    "abcdenmarkef" (if Denmark is picked). Other example: the cursor is at 'Б' in line "41тБt2" and the user executes :FLastName,
+    the result line will look like "41тБорисоваt2".
+    
+    Command 8, can be executed regardless of what is under the cursor (best option is if it's empty). The user executes :Phone and
+    random 10-digit phone number-imitation is generated and placed right at the cursor. The only constant here is that the phone
+    number will always begin with the digit '0' (zero). The following nine digits are generated at random in the range [0-9].
+    
+    Command 9 accepts two mandatory parameters. The first one is the lower bound of the range and the second one is the upper bound.
+    They must fullfill the requirement "<arg-1> is less than <arg-2>". If <arg-1> >= <arg-2>, there will be an error message and no result.
+    :RandomNumber can be called anywhere and it will generate a random integer number and place it at the cursor (similar to command 8).
+
+    Command 10 needs exactly one argument which is a number (that must be <= 13560, because that is the total number of words present
+    in lorem.txt) and prints that number of filler words from a source "Lorem ipsum"-style file, right after the cursor.
+
+=========================================================================================================================================
+SETTINGS
+
+    The "vim-textfill" plugin does not need any additional settings to run properly. Just Vim installed on the machine.
+
+=========================================================================================================================================
+ISSUES
+
+    Encountered issues so far:
+      1) When one of the commands numbered 1-7 is executed, whilst the cursor is at unexpected character (different from EN or BG letter)
+      the behaviour is undefined. It may truncate the next character, it may place some unwanted characters as <B-0> and so on.
+
+      2) When one of the commands numbered 1-7 is executed, whilst the cursor is at empty space (doesn't have any character on it),
+      a random word is picked out of the whole list of possible words from the corresponding to the command file and is placed there, but
+      without its first digits, because the functions work that way normally - they are not intended to place the whole word, but
+      instead they paste only the substring of the word starting from the second digit. This is so, because this way the script handles
+      both lowercase and uppercase first letters easily. 
+
+=========================================================================================================================================
