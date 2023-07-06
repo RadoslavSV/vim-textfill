@@ -1,3 +1,5 @@
+*textfill.txt*
+
 Documentation for "vim-textfill" plugin
 ---------------------------------------
 Author: Radoslav Velkov, FMI (SU), 3-rd year
@@ -6,16 +8,16 @@ Course: Using and scripting Vim (teacher: Andrew Radev)
 
 
 =========================================================================================================================================
-CONTENTS
+CONTENTS                                                                       *textfill-contents*
 
-    Description.............................................
-    Installation............................................
-    Usage...................................................
-    Settings................................................
-    Issues..................................................
+    Description.............................................|textfill-description|
+    Installation............................................|textfill-installation|
+    Usage...................................................|textfill-usage|
+    Settings................................................|textfill-settings|
+    Issues..................................................|textfill-issues|
 
 =========================================================================================================================================
-DESCRIPTION
+DESCRIPTION                                                                    *textfill-description*
 
     "vim-textfill" is a powerful plugin designed to enhance the user's text-filling experience within Vim.
     It provides convenient commands to generate random realistic text, saving time and effort when populating documents.
@@ -41,7 +43,7 @@ DESCRIPTION
     work without being distracted by the tedious task of generating placeholder text.
 
 =========================================================================================================================================
-INSTALLATION
+INSTALLATION                                                                   *textfill-installation*
 
     You can clone my repo that contains the whole directory structure with all needed files to run the plugin.
     URL: www.github.com/RadoslavSV/vim-textfill.git
@@ -52,7 +54,7 @@ INSTALLATION
     to access the source txt files there.
 
 =========================================================================================================================================
-USAGE
+USAGE                                                                          *textfill-usage*
 
     In order to use the plugin functionalities, the user execute one of the following commands in the commandline, whilst in Normal mode.
       1) :Country 
@@ -86,12 +88,12 @@ USAGE
     in lorem.txt) and prints that number of filler words from a source "Lorem ipsum"-style file, right after the cursor.
 
 =========================================================================================================================================
-SETTINGS
+SETTINGS                                                                       *textfill-settings*
 
     The "vim-textfill" plugin does not need any additional settings to run properly. Just Vim installed on the machine.
 
 =========================================================================================================================================
-ISSUES
+ISSUES                                                                         *textfill-issues*
 
     Encountered issues so far:
       1) When one of the commands numbered 1-7 is executed, whilst the cursor is at unexpected character (different from EN or BG letter)
