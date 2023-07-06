@@ -1,7 +1,7 @@
-textfill-contents         textfill.txt	   /*textfill-contents*
-textfill-description	    textfill.txt     /*textfill-description*
-textfill-installation	    textfill.txt	   /*textfill-installation*
-textfill-issues	          textfill.txt   	 /*textfill-issues*
-textfill-settings	        textfill.txt  	 /*textfill-settings*
-textfill-usage	          textfill.txt	   /*textfill-usage*
-textfill.txt	            textfill.txt   	 /*textfill.txt*
+textfill-contents	textfill.txt	/*textfill-contents*
+textfill-description	textfill.txt	/*textfill-description*
+textfill-installation	textfill.txt	/*textfill-installation*
+textfill-issues	textfill.txt	/*textfill-issues*
+textfill-settings	textfill.txt	/*textfill-settings*
+textfill-usage	textfill.txt	/*textfill-usage*
+textfill.txt	textfill.txt	/*textfill.txt*
