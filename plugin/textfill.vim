@@ -16,3 +16,5 @@ command! -nargs=0 Phone :call textfill#Phone()
 
 command! -nargs=+ RandomNumber call textfill#RandomNumber(<f-args>)
 
+command! -nargs=1 Lorem :call textfill#LoremIpsum(<args>)
+

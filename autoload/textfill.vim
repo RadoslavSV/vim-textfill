@@ -235,3 +235,19 @@ function! textfill#RandomNumber(r_begin, r_end)
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! textfill#LoremIpsum(word_len)
+  let l:word_count = str2nr(a:word_len)
+  if l:word_count <= 13560
+    let l:filename = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\lorem.txt'
+    let l:lines = readfile(l:filename)
+    let l:words = split(join(l:lines), '\(\s\|,\)\+')
+    let l:extracted_words = l:words[:l:word_count - 1]
+    let l:output = join(l:extracted_words)
+    execute 'normal! a' . l:output
+  else
+    echomsg "Input a word count less than 13560"
+  endif
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
