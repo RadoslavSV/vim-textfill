@@ -77,15 +77,15 @@ function! textfill#Streets()
   let l:filename_cyrillic = g:absolute_path . 'BG_streets.txt'
   let l:letter = getline('.')[col('.') - 1]
   let l:candidates = []
-  let l:country = ''
+  let l:street = ''
 
   if l:letter =~# '[a-zA-Z]'
     let l:lines = readfile(l:filename_latin)
     let l:letter = toupper(l:letter)
     let l:candidates = filter(copy(l:lines), 'v:val =~# "\\v^" . l:letter')
-    let l:country = get(l:candidates, rand() % len(l:candidates), '')
-    let l:country = strpart(l:country, 1)
-    execute 'normal! a' . l:country
+    let l:street = get(l:candidates, rand() % len(l:candidates), '')
+    let l:street = strpart(l:country, 1)
+    execute 'normal! a' . l:street
   else
     let l:lines = readfile(l:filename_cyrillic)
     let l:letter = strcharpart(getline('.'), virtcol('.') - 1, 1)
