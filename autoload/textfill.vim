@@ -2,184 +2,9 @@ let g:absolute_path = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\sr
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-function! textfill#Countries()
-  let l:filename_latin = g:absolute_path . 'countries.txt'
-  let l:filename_cyrillic = g:absolute_path . 'BG_countries.txt'
-  let l:letter = getline('.')[col('.') - 1]
-  let l:candidates = []
-  let l:country = ''
-
-  if l:letter =~# '[a-zA-Z]'
-    let l:lines = readfile(l:filename_latin)
-    let l:letter = toupper(l:letter)
-    let l:candidates = filter(copy(l:lines), 'v:val =~# "\\v^" . l:letter')
-    let l:country = get(l:candidates, rand() % len(l:candidates), '')
-    let l:country = strpart(l:country, 1)
-    execute 'normal! a' . l:country
-  else
-    let l:lines = readfile(l:filename_cyrillic)
-    let l:letter = strcharpart(getline('.'), virtcol('.') - 1, 1)
-    let l:uppercase_letter = toupper(l:letter)
-    let l:candidates = filter(copy(l:lines), 'v:val =~# "\\v^" . l:uppercase_letter')
-    let l:replacement = get(l:candidates, rand() % len(l:candidates), '')
-    let l:replacement = l:letter . strpart(l:replacement, 2)
-    let l:line = strpart(getline("."), 0, col(".") - 1) . l:replacement . strpart(getline("."), col(".")+1)
-    call setline(".", l:line)
-
-    let l:virLen = strdisplaywidth(l:replacement)
-    let l:count = 0
-    while l:count < l:virLen-1
-      execute "normal! l"
-      let l:count += 1
-    endwhile
-  endif
-endfunction
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-function! textfill#Cities()
-  let l:filename_latin = g:absolute_path . 'cities.txt'
-  let l:filename_cyrillic = g:absolute_path . 'BG_cities.txt'
-  let l:letter = getline('.')[col('.') - 1]
-  let l:candidates = []
-  let l:city = ''
-
-  if l:letter =~# '[a-zA-Z]'
-    let l:lines = readfile(l:filename_latin)
-    let l:letter = toupper(l:letter)
-    let l:candidates = filter(copy(l:lines), 'v:val =~# "\\v^" . l:letter')
-    let l:city = get(l:candidates, rand() % len(l:candidates), '')
-    let l:city = strpart(l:city, 1)
-    execute 'normal! a' . l:city
-  else
-    let l:lines = readfile(l:filename_cyrillic)
-    let l:letter = strcharpart(getline('.'), virtcol('.') - 1, 1)
-    let l:uppercase_letter = toupper(l:letter)
-    let l:candidates = filter(copy(l:lines), 'v:val =~# "\\v^" . l:uppercase_letter')
-    let l:replacement = get(l:candidates, rand() % len(l:candidates), '')
-    let l:replacement = l:letter . strpart(l:replacement, 2)
-    let l:line = strpart(getline("."), 0, col(".") - 1) . l:replacement . strpart(getline("."), col(".")+1)
-    call setline(".", l:line)
-
-    let l:virLen = strdisplaywidth(l:replacement)
-    let l:count = 0
-    while l:count < l:virLen-1
-      execute "normal! l"
-      let l:count += 1
-    endwhile
-  endif
-endfunction
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-function! textfill#Streets()
-  let l:filename_latin = g:absolute_path . 'streets.txt'
-  let l:filename_cyrillic = g:absolute_path . 'BG_streets.txt'
-  let l:letter = getline('.')[col('.') - 1]
-  let l:candidates = []
-  let l:street = ''
-
-  if l:letter =~# '[a-zA-Z]'
-    let l:lines = readfile(l:filename_latin)
-    let l:letter = toupper(l:letter)
-    let l:candidates = filter(copy(l:lines), 'v:val =~# "\\v^" . l:letter')
-    let l:street = get(l:candidates, rand() % len(l:candidates), '')
-    let l:street = strpart(l:country, 1)
-    execute 'normal! a' . l:street
-  else
-    let l:lines = readfile(l:filename_cyrillic)
-    let l:letter = strcharpart(getline('.'), virtcol('.') - 1, 1)
-    let l:uppercase_letter = toupper(l:letter)
-    let l:candidates = filter(copy(l:lines), 'v:val =~# "\\v^" . l:uppercase_letter')
-    let l:replacement = get(l:candidates, rand() % len(l:candidates), '')
-    let l:replacement = l:letter . strpart(l:replacement, 2)
-    let l:line = strpart(getline("."), 0, col(".") - 1) . l:replacement . strpart(getline("."), col(".")+1)
-    call setline(".", l:line)
-
-    let l:virLen = strdisplaywidth(l:replacement)
-    let l:count = 0
-    while l:count < l:virLen-1
-      execute "normal! l"
-      let l:count += 1
-    endwhile
-  endif
-endfunction
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-function! textfill#MaleFirstNames()
-  let l:filename_latin = g:absolute_path . 'male_first_names.txt'
-  let l:filename_cyrillic = g:absolute_path . 'BG_male_first_names.txt'
-  let l:letter = getline('.')[col('.') - 1]
-  let l:candidates = []
-  let l:name = ''
-
-  if l:letter =~# '[a-zA-Z]'
-    let l:lines = readfile(l:filename_latin)
-    let l:letter = toupper(l:letter)
-    let l:candidates = filter(copy(l:lines), 'v:val =~# "\\v^" . l:letter')
-    let l:name = get(l:candidates, rand() % len(l:candidates), '')
-    let l:name = strpart(l:name, 1)
-    execute 'normal! a' . l:name
-  else
-    let l:lines = readfile(l:filename_cyrillic)
-    let l:letter = strcharpart(getline('.'), virtcol('.') - 1, 1)
-    let l:uppercase_letter = toupper(l:letter)
-    let l:candidates = filter(copy(l:lines), 'v:val =~# "\\v^" . l:uppercase_letter')
-    let l:replacement = get(l:candidates, rand() % len(l:candidates), '')
-    let l:replacement = l:letter . strpart(l:replacement, 2)
-    let l:line = strpart(getline("."), 0, col(".") - 1) . l:replacement . strpart(getline("."), col(".")+1)
-    call setline(".", l:line)
-
-    let l:virLen = strdisplaywidth(l:replacement)
-    let l:count = 0
-    while l:count < l:virLen-1
-      execute "normal! l"
-      let l:count += 1
-    endwhile
-  endif
-endfunction
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-function! textfill#FemaleFirstNames()
-  let l:filename_latin = g:absolute_path . 'female_first_names.txt'
-  let l:filename_cyrillic = g:absolute_path . 'BG_female_first_names.txt'
-  let l:letter = getline('.')[col('.') - 1]
-  let l:candidates = []
-  let l:name = ''
-
-  if l:letter =~# '[a-zA-Z]'
-    let l:lines = readfile(l:filename_latin)
-    let l:letter = toupper(l:letter)
-    let l:candidates = filter(copy(l:lines), 'v:val =~# "\\v^" . l:letter')
-    let l:name = get(l:candidates, rand() % len(l:candidates), '')
-    let l:name = strpart(l:name, 1)
-    execute 'normal! a' . l:name
-  else
-    let l:lines = readfile(l:filename_cyrillic)
-    let l:letter = strcharpart(getline('.'), virtcol('.') - 1, 1)
-    let l:uppercase_letter = toupper(l:letter)
-    let l:candidates = filter(copy(l:lines), 'v:val =~# "\\v^" . l:uppercase_letter')
-    let l:replacement = get(l:candidates, rand() % len(l:candidates), '')
-    let l:replacement = l:letter . strpart(l:replacement, 2)
-    let l:line = strpart(getline("."), 0, col(".") - 1) . l:replacement . strpart(getline("."), col(".")+1)
-    call setline(".", l:line)
-	
-    let l:virLen = strdisplaywidth(l:replacement)
-    let l:count = 0
-    while l:count < l:virLen-1
-        execute "normal! l"
-        let l:count += 1
-    endwhile
-  endif
-endfunction
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-function! textfill#LastNames(end)
-  let l:filename_latin = g:absolute_path . 'last_names.txt'
-  let l:filename_cyrillic = g:absolute_path . 'BG_last_names.txt'
+function! textfill#pasteFunction(latin_file, cyrillic_file, end)
+  let l:filename_latin = g:absolute_path . a:latin_file
+  let l:filename_cyrillic = g:absolute_path . a:cyrillic_file
   let l:letter = getline('.')[col('.') - 1]
   let l:candidates = []
   let l:name = ''
@@ -211,6 +36,69 @@ function! textfill#LastNames(end)
       let l:count += 1
     endwhile
   endif
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! textfill#Countries()
+  let l:latin_file = 'countries.txt'
+  let l:cyrillic_file = 'BG_countries.txt'
+  let l:end = ''
+  call textfill#pasteFunction(l:latin_file, l:cyrillic_file, l:end)
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! textfill#Cities()
+  let l:latin_file = 'cities.txt'
+  let l:cyrillic_file = 'BG_cities.txt'
+  let l:end = ''
+  call textfill#pasteFunction(l:latin_file, l:cyrillic_file, l:end)
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! textfill#Streets()
+  let l:latin_file = 'streets.txt'
+  let l:cyrillic_file = 'BG_streets.txt'
+  let l:end = ''
+  call textfill#pasteFunction(l:latin_file, l:cyrillic_file, l:end)
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! textfill#MaleFirstNames()
+  let l:latin_file = 'male_first_names.txt'
+  let l:cyrillic_file = 'BG_male_first_names.txt'
+  let l:end = ''
+  call textfill#pasteFunction(l:latin_file, l:cyrillic_file, l:end)
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! textfill#FemaleFirstNames()
+  let l:latin_file = 'female_first_names.txt'
+  let l:cyrillic_file = 'BG_female_first_names.txt'
+  let l:end = ''
+  call textfill#pasteFunction(l:latin_file, l:cyrillic_file, l:end)
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! textfill#LastNames()
+  let l:latin_file = 'last_names.txt'
+  let l:cyrillic_file = 'BG_last_names.txt'
+  let l:end = ''
+  call textfill#pasteFunction(l:latin_file, l:cyrillic_file, l:end)
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! textfill#LastNames(end)
+  let l:latin_file = 'last_names.txt'
+  let l:cyrillic_file = 'BG_last_names.txt'
+  let l:end = a:end
+  call textfill#pasteFunction(l:latin_file, l:cyrillic_file, l:end)
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
