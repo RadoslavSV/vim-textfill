@@ -1,10 +1,10 @@
-let g:absolute_path = 'C:\Users\Owner\vimfiles\pack\vendor\start\vim-textfill\src\'
+let s:src_root = simplify(expand('<sfile>:h') .. '/../src/')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! textfill#pasteFunction(latin_file, cyrillic_file, end)
-  let l:filename_latin = g:absolute_path . a:latin_file
-  let l:filename_cyrillic = g:absolute_path . a:cyrillic_file
+  let l:filename_latin = s:src_root . a:latin_file
+  let l:filename_cyrillic = s:src_root . a:cyrillic_file
   let l:letter = getline('.')[col('.') - 1]
   let l:candidates = []
   let l:name = ''
@@ -25,7 +25,7 @@ function! textfill#pasteFunction(latin_file, cyrillic_file, end)
     let l:replacement = l:letter . strpart(l:replacement, 2)
     let l:line = strpart(getline("."), 0, col(".") - 1) . l:replacement . a:end . strpart(getline("."), col(".")+1)
     call setline(".", l:line)
-    
+
     let l:virLen = strdisplaywidth(l:replacement)
     let l:count = 0
     if !empty(a:end)
@@ -131,7 +131,7 @@ endfunction
 function! textfill#LoremIpsum(word_len)
   let l:word_count = str2nr(a:word_len)
   if l:word_count <= 13560
-    let l:filename = g:absolute_path . 'lorem.txt'
+    let l:filename = s:src_root . 'lorem.txt'
     let l:lines = readfile(l:filename)
     let l:words = split(join(l:lines), '\(\s\|,\)\+')
     let l:extracted_words = l:words[:l:word_count - 1]
